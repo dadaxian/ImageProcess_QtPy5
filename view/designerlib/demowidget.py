@@ -7,7 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 
 
-from PyQt5 import QtCore, QtGui, QtWidgets, Qt
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Form(object):
@@ -90,6 +90,12 @@ class Ui_Form(object):
         self.spinBox_7 = QtWidgets.QSpinBox(self.groupBox)
         self.spinBox_7.setGeometry(QtCore.QRect(260, 200, 42, 22))
         self.spinBox_7.setObjectName("spinBox_7")
+        self.btnhisEqulColor1 = QtWidgets.QPushButton(self.groupBox)
+        self.btnhisEqulColor1.setGeometry(QtCore.QRect(30, 240, 271, 23))
+        self.btnhisEqulColor1.setObjectName("btnhisEqulColor1")
+        self.btnhisEqulColor2 = QtWidgets.QPushButton(self.groupBox)
+        self.btnhisEqulColor2.setGeometry(QtCore.QRect(30, 270, 271, 23))
+        self.btnhisEqulColor2.setObjectName("btnhisEqulColor2")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -105,12 +111,5 @@ class Ui_Form(object):
         self.label_5.setText(_translate("Form", "锐度："))
         self.label_6.setText(_translate("Form", "亮度："))
         self.label_7.setText(_translate("Form", "亮度："))
-        self.horizontalSlider_sedu.setRange(0,100)
-        self.horizontalSlider_duibidu.setRange(0,100)
-        self.horizontalSlider_liangdu.setRange(0,100)
-        self.horizontalSlider_ruidu.setRange(0,100)
-        self.horizontalSlider_qingxidu.setRange(0,100)
-        self.horizontalSlider_6.setRange(0,100)
-        self.horizontalSlider_7.setRange(0,100)
-
-        # self.horizontalSlider_sedu.valueChanged.connect(self.spinBox_sedu)
+        self.btnhisEqulColor1.setText(_translate("Form", "直方图全局均衡化"))
+        self.btnhisEqulColor2.setText(_translate("Form", "直方图自适应均衡化"))

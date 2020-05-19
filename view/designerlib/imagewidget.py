@@ -26,9 +26,16 @@ class ImageBox(QWidget):
     def init_ui(self):
         self.setWindowTitle("ImageBox")
 
+    def set_img_array(self,ndarray):
+        self.img_array=ndarray
+
     def set_pixmap(self, ndarray):
-        qimage = QtGui.QImage(ndarray.data, self.width, self.height, QtGui.QImage.Format_RGB32)
-        self.scaled_img = QtGui.QPixmap.fromImage(qimage)
+        self.img_array = cv2.cvtColor(ndarray, cv2.COLOR_BGR2BGRA)
+        qimage = QtGui.QImage(self.img_array.data, ndarray.shape[1], ndarray.shape[0], QtGui.QImage.Format_RGB32)
+        self.width = ndarray.shape[1]  # 获取图像大小
+        self.height = ndarray.shape[0]
+        self.scaled_img = QtGui.QPixmap.fromImage(qimage).scaled(self.width, self.height, Qt.IgnoreAspectRatio, Qt.SmoothTransformation)
+        self.repaint()
 
 
     def set_image(self, img_path):
@@ -80,12 +87,12 @@ class ImageBox(QWidget):
             # print("x: " + str(event.angleDelta().x()))
             if angle_delta_y > 0:
                 if self.scale < 2:
-                    self.scale += 0.1
+                    self.scale += 0.01
                     self.adjustSize()
                     self.update()
             else:
                 if self.scale > 0.1:
-                    self.scale -= 0.2
+                    self.scale -= 0.01
                     self.adjustSize()
                     self.update()
 

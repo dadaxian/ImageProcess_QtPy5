@@ -8,12 +8,15 @@
 # 导入程序运行必须模块
 import sys
 
-from PyQt5.QtCore import Qt
+import cv2
+import numpy as np
+from PyQt5.QtCore import Qt, pyqtSlot
 from PyQt5.QtGui import QImage, QPixmap, QIcon, QPainter
 from PyQt5.QtWidgets import QApplication, QMainWindow, QGraphicsPixmapItem, QGraphicsScene, QGraphicsView, QAction, \
     qApp, QFileDialog, QWidget, QHBoxLayout, QVBoxLayout, QPushButton
 # 导入designer工具生成的login模块
 from demowidget import Ui_Form
+from histequal import hisEqulColor1, hisEqulColor2
 from imagewidget import Img_Widget
 
 
@@ -34,6 +37,10 @@ class MyMainForm(QMainWindow, Ui_Form):
 
     # def open_event(self):
     #     image_name,_ = QFileDialog.getOpenFileName(self, "选择文件", "","*.jpg;;*.png;;*.jpeg")
+
+    def init_img_args(self):
+        cols,rows=self.origin_img_widget.box.img_array.shape
+        brightness=np.sum(self.origin_img_widget.box.img_array)
 
     def initUI(self):
         # ---菜单栏---
@@ -64,6 +71,18 @@ class MyMainForm(QMainWindow, Ui_Form):
 
         #self.setCentralWidget(self.origin_img_widget)
 
+    # 直方图全局均衡化
+    @pyqtSlot()
+    def on_btnhisEqulColor1_clicked(self):
+        if self.origin_img_widget.box.img_array is not None:
+            res1 = hisEqulColor1(self.origin_img_widget.box.img_array)
+            self.result_img_widget.box.set_pixmap(res1)
+    # 直方图自适应均衡化
+    @pyqtSlot()
+    def on_btnhisEqulColor2_clicked(self):
+        if self.origin_img_widget.box.img_array is not None:
+            res2 = hisEqulColor2(self.origin_img_widget.box.img_array)
+            self.result_img_widget.box.set_pixmap(res2)
 
 if __name__ == "__main__":
     # 固定的，PyQt5程序都需要QApplication对象。sys.argv是命令行参数列表，确保程序可以双击运行
