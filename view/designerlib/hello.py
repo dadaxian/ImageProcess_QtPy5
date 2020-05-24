@@ -7,6 +7,7 @@
 # WARNING! All changes made in this file will be lost!
 # 导入程序运行必须模块
 import sys
+import time
 
 import cv2
 import numpy as np
@@ -15,6 +16,7 @@ from PyQt5.QtGui import QImage, QPixmap, QIcon, QPainter
 from PyQt5.QtWidgets import QApplication, QMainWindow, QGraphicsPixmapItem, QGraphicsScene, QGraphicsView, QAction, \
     qApp, QFileDialog, QWidget, QHBoxLayout, QVBoxLayout, QPushButton
 # 导入designer工具生成的login模块
+from bright import set_color_img_bright
 from demowidget import Ui_Form
 from histequal import hisEqulColor1, hisEqulColor2
 from imagewidget import Img_Widget
@@ -67,6 +69,11 @@ class MyMainForm(QMainWindow, Ui_Form):
         layout.addWidget(self.result_img_widget)
         self.centralWidget().setLayout(layout)
 
+        self.horizontalSlider_liangdu.valueChanged.connect(self.updateImgByBaseArgs)
+        self.horizontalSlider_baohedu.valueChanged.connect(self.updateImgByBaseArgs)
+        #self.spinBoxliangdu.valueChanged.connect(self)
+
+        #self.ho
         #self.addDockWidget(Qt_DockWidgetArea=Qt.LeftDockWidgetArea,origin_img_widget)
 
         #self.setCentralWidget(self.origin_img_widget)
@@ -83,6 +90,13 @@ class MyMainForm(QMainWindow, Ui_Form):
         if self.origin_img_widget.box.img_array is not None:
             res2 = hisEqulColor2(self.origin_img_widget.box.img_array)
             self.result_img_widget.box.set_pixmap(res2)
+
+    # 更新图片和全局参数
+    def updateImgByBaseArgs(self):
+        if self.origin_img_widget.box.img_array is not None:
+            res1 = set_color_img_bright(self.horizontalSlider_liangdu.value(), self.horizontalSlider_baohedu.value(),
+                                        self.origin_img_widget.box.img_array_HLS)
+            self.result_img_widget.box.set_pixmap(res1)
 
 if __name__ == "__main__":
     # 固定的，PyQt5程序都需要QApplication对象。sys.argv是命令行参数列表，确保程序可以双击运行

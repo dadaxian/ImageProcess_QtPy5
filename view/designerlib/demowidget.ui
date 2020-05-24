@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1768</width>
+    <width>1584</width>
     <height>1234</height>
    </rect>
   </property>
@@ -44,6 +44,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -69,6 +72,9 @@
       <width>160</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="maximum">
+     <number>100</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -96,6 +102,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -121,6 +130,9 @@
       <width>160</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="maximum">
+     <number>100</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -148,6 +160,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
     </property>
@@ -165,7 +180,7 @@
      <string>锐度：</string>
     </property>
    </widget>
-   <widget class="QSlider" name="horizontalSlider_6">
+   <widget class="QSlider" name="horizontalSlider_baohedu">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -173,6 +188,9 @@
       <width>160</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="maximum">
+     <number>100</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -188,7 +206,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>亮度：</string>
+     <string>饱和度：</string>
     </property>
    </widget>
    <widget class="QSlider" name="horizontalSlider_7">
@@ -199,6 +217,9 @@
       <width>160</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="maximum">
+     <number>100</number>
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
@@ -247,7 +268,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_4">
+   <widget class="QSpinBox" name="spinBox_baohedu">
     <property name="geometry">
      <rect>
       <x>260</x>
@@ -316,5 +337,70 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>horizontalSlider_baohedu</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBox_baohedu</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1439</x>
+     <y>520</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1560</x>
+     <y>520</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_liangdu</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>spinBoxliangdu</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1439</x>
+     <y>370</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1560</x>
+     <y>370</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBoxliangdu</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>horizontalSlider_liangdu</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1560</x>
+     <y>370</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1439</x>
+     <y>370</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_baohedu</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>horizontalSlider_baohedu</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1560</x>
+     <y>520</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1439</x>
+     <y>520</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

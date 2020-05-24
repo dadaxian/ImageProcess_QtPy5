@@ -1,4 +1,5 @@
 import sys
+import time
 
 import cv2
 import numpy as np
@@ -14,6 +15,7 @@ class ImageBox(QWidget):
         super(ImageBox, self).__init__()
         self.img = None
         self.img_array = None
+        self.img_array_HLS = None
         self.width = None
         self.height = None
         self.scaled_img = None
@@ -46,6 +48,10 @@ class ImageBox(QWidget):
         """
         self.img = QPixmap(img_path)
         self.img_array = cv2.imdecode(np.fromfile(img_path, dtype=np.uint8), -1)
+        fImg = self.img_array.astype(np.float32)
+        fImg = fImg / 255.0
+        # 颜色空间转换 BGR转为HLS
+        self.img_array_HLS = cv2.cvtColor(fImg, cv2.COLOR_BGR2HLS)
         self.width = self.img_array.shape[1]  # 获取图像大小
         self.height = self.img_array.shape[0]
         self.scaled_img = self.img.scaled(self.width, self.height, Qt.IgnoreAspectRatio, Qt.SmoothTransformation)
