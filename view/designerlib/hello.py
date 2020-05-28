@@ -20,8 +20,8 @@ from bright import set_color_img_bright
 from demowidget import Ui_Form
 from histequal import hisEqulColor1, hisEqulColor2
 from imagewidget import Img_Widget
-
-
+from addnoise import *
+from removenoise import *
 
 class MyMainForm(QMainWindow, Ui_Form):
     def __init__(self):
@@ -90,6 +90,32 @@ class MyMainForm(QMainWindow, Ui_Form):
         if self.origin_img_widget.box.img_array is not None:
             res2 = hisEqulColor2(self.origin_img_widget.box.img_array)
             self.result_img_widget.box.set_pixmap(res2)
+
+    @pyqtSlot()
+    def on_pushButton_addnoise_clicked(self):
+        if self.origin_img_widget.box.img_array is not None:
+            if self.comboBox_zaosheng.currentText() == "高斯噪声":
+                res2 = gasuss_noise(self.origin_img_widget.box.img_array, 0, 0.001)
+                self.result_img_widget.box.set_pixmap(res2)
+            elif self.comboBox_zaosheng.currentText() == "椒盐噪声":
+                res2 = sp_noise(self.origin_img_widget.box.img_array, prob=0.02)
+                self.result_img_widget.box.set_pixmap(res2)
+
+    @pyqtSlot()
+    def on_pushButton_quzao_clicked(self):
+        if self.result_img_widget.box.img_array is not None:
+            if self.comboBox_quzao.currentText() == "均值滤波":
+                res2 = blur_avg_img(self.result_img_widget.box.img_array)
+                self.result_img_widget.box.set_pixmap(res2)
+            elif self.comboBox_quzao.currentText() == "方框滤波":
+                res2 = blur_boxfilter_img(self.result_img_widget.box.img_array)
+                self.result_img_widget.box.set_pixmap(res2)
+            elif self.comboBox_quzao.currentText() == "高斯滤波":
+                res2 = blur_gaussian_img(self.result_img_widget.box.img_array)
+                self.result_img_widget.box.set_pixmap(res2)
+            elif self.comboBox_quzao.currentText() == "中值滤波":
+                res2 = blur_median_img(self.result_img_widget.box.img_array)
+                self.result_img_widget.box.set_pixmap(res2)
 
     # 更新图片和全局参数
     def updateImgByBaseArgs(self):

@@ -26,10 +26,10 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>1280</x>
-     <y>340</y>
-     <width>371</width>
-     <height>341</height>
+     <x>1180</x>
+     <y>300</y>
+     <width>331</width>
+     <height>311</height>
     </rect>
    </property>
    <property name="title">
@@ -332,6 +332,116 @@
     </property>
     <property name="text">
      <string>直方图自适应均衡化</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>630</y>
+     <width>321</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>图像去噪</string>
+   </property>
+   <widget class="QPushButton" name="pushButton_addnoise">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>30</y>
+      <width>121</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>添加噪声</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_zaosheng">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>30</y>
+      <width>81</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>高斯噪声</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>椒盐噪声</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="pushButton_quzao">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>70</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>去噪</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_quzao">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>70</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>均值滤波</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>高斯滤波</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>中值滤波</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>54</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>噪声种类：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>54</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>去噪方法：</string>
     </property>
    </widget>
   </widget>

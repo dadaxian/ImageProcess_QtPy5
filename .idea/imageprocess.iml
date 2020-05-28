@@ -6,8 +6,12 @@
       <sourceFolder url="file://$MODULE_DIR$/src/image-enhancement" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/image-args" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/config" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/image-nosie" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PyDocumentationSettings">
+    <option name="renderExternalDocumentation" value="true" />
   </component>
 </module>
