@@ -22,6 +22,8 @@ from histequal import hisEqulColor1, hisEqulColor2
 from imagewidget import Img_Widget
 from addnoise import *
 from removenoise import *
+from road_recognition import road_recog
+
 
 class MyMainForm(QMainWindow, Ui_Form):
     def __init__(self):
@@ -101,6 +103,11 @@ class MyMainForm(QMainWindow, Ui_Form):
                 res2 = sp_noise(self.origin_img_widget.box.img_array, prob=0.02)
                 self.result_img_widget.box.set_pixmap(res2)
 
+    @pyqtSlot()
+    def on_pushButton_recog_clicked(self):
+        if self.result_img_widget.box.img_array is not None:
+            img1, img2, img3 = road_recog(self.result_img_widget.box.img_array)
+            self.result_img_widget.box.set_pixmap(img3)
     @pyqtSlot()
     def on_pushButton_quzao_clicked(self):
         if self.result_img_widget.box.img_array is not None:

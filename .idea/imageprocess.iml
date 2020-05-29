@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/image-args" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/config" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/image-nosie" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/image-recognition" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

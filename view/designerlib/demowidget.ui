@@ -16,8 +16,8 @@
   <widget class="QListWidget" name="listWidget">
    <property name="geometry">
     <rect>
-     <x>1320</x>
-     <y>100</y>
+     <x>1210</x>
+     <y>60</y>
      <width>256</width>
      <height>192</height>
     </rect>
@@ -442,6 +442,119 @@
     </property>
     <property name="text">
      <string>去噪方法：</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>760</y>
+     <width>321</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>图像去噪/平滑边缘检测/目标识别（提取语义）</string>
+   </property>
+   <widget class="QComboBox" name="comboBox_bianyuan">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>90</y>
+      <width>91</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>canny算子</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>sobel算子</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="pushButton_recog">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>150</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>识别</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>0</y>
+      <width>391</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>说明：主要是实现车道线检测，可使用样例图片测试</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_pinhua">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>60</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>中值滤波</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>高斯加权滤波</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>均值滤波</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>54</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>图像平滑：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>54</width>
+      <height>12</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>边缘提取：</string>
     </property>
    </widget>
   </widget>
